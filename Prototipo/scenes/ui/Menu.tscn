@@ -104,19 +104,20 @@ position = Vector2( 1331, 69 )
 script = null
 
 [node name="LabelTitleGame" type="Label" parent="."]
-margin_left = 417.0
+margin_left = 2.0
 margin_top = 91.0
-margin_right = 1137.0
+margin_right = 1599.0
 margin_bottom = 211.0
 rect_pivot_offset = Vector2( 663, 82 )
 custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
 custom_fonts/font = SubResource( 20 )
-text = "Pasaro"
+text = "Passaro"
+align = 1
 
 [node name="LabelHighScore" type="Label" parent="."]
-margin_left = 1252.0
+margin_left = 1080.0
 margin_top = 451.0
-margin_right = 1732.0
+margin_right = 1596.0
 margin_bottom = 613.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 21 )
@@ -125,11 +126,12 @@ Pontuacao
 
 
 "
+align = 1
 
 [node name="LabelHighScoreNum" type="Label" parent="."]
-margin_left = 1261.0
+margin_left = 1155.0
 margin_top = 543.0
-margin_right = 1511.0
+margin_right = 1596.0
 margin_bottom = 752.0
 custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
 custom_fonts/font = SubResource( 22 )
@@ -137,6 +139,7 @@ text = "15032
 
 
 "
+align = 1
 
 [connection signal="pressed" from="ButtonStart" to="." method="_on_ButtonStart_pressed"]
 [connection signal="pressed" from="ButtonClose" to="." method="_on_ButtonClose_pressed"]

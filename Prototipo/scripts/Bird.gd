@@ -6,6 +6,8 @@ var velocity
 signal bird_fall
 var bird_is_fall: bool = false
 
+signal game_over
+
 func _init():
 	velocity = Vector2.ZERO
 	velocity.x = -500		
@@ -31,9 +33,8 @@ func _physics_process(delta):
 		gravity = 5000		
 
 	# REMOVER PASSARO AO SAIR DA TELA
-	if(position.x < -250 or position.y > 900):
-		print(">>>>>> bird_removed >>>>>>")
+	if(position.x < -250 or position.y > 900):		
 		queue_free()	
 
 func _on_BirdArea_area_entered(area):
-	get_tree().change_scene("res://scenes/ui/GameOver.tscn")
+	emit_signal('game_over')

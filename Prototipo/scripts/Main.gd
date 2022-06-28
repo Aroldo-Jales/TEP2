@@ -1,6 +1,5 @@
 extends Node2D
 
-var score: int = 0
 var enemy_time = 5
 var enemy_velocity = Vector2(-900, 0)
 
@@ -21,6 +20,7 @@ func _on_Timer_timeout():
 	bird.global_position = Vector2(1620, rand_y)			
 	add_child(bird)			
 	bird.connect('bird_fall', self, '_on_Bird_fall')
+	bird.connect('game_over', self, '_on_Game_over')
 	
 	if(enemy_time < 1):
 		$TimerEnemies.wait_time = 0.5
@@ -29,7 +29,7 @@ func _on_Timer_timeout():
 	enemy_time -= 0.4
 	
 func _add_wall(position: Vector2, size: Vector2):
-	var rect := RectangleShape2D.new()
+	var rect = RectangleShape2D.new()
 	rect.set_extents(size)
 	
 	var collision_shape := CollisionShape2D.new()
@@ -47,13 +47,20 @@ func _add_wall(position: Vector2, size: Vector2):
 	
 func _on_TimerScore_timeout():
 	#TIMER SCORE	
-	$LabelScore.text = str(score)	
-	score += int(1)
+	$LabelScore.text = str(AutoLoad.score)	
+	AutoLoad.score += int(1)
 	
 	if(!water_active):
 		water_active = true
 		$WaterBottom.visible = true
 
 func _on_Bird_fall():
-	$LabelScore.text = str(score)
-	score += int(5)
+	$LabelScore.text = str(AutoLoad.score)
+	AutoLoad.score += int(5)
+	
+
+func _on_Game_over():
+	if(AutoLoad._get_Highscore() < AutoLoad.score):
+		AutoLoad._set_Highscore(AutoLoad.score)
+	
+	get_tree().change_scene("res://scenes/ui/GameOver.tscn")	

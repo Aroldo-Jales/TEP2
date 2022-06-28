@@ -1,8 +1,10 @@
 extends Node2D
 
 func _ready():
-	pass 
-
+	$LabelScoreNum.text = str(AutoLoad.score)
+	$LabelHighScoreNum.text = str(AutoLoad._get_Highscore())
+	AutoLoad.score = 0			
+	
 func _on_ButtonRestart_pressed():
 	get_tree().change_scene("res://scenes/game/Main.tscn")
 

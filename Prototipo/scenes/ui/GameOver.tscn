@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/game/Bird.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/fonts/PressStart2PRegular.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,14 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=16]
 size = 120
 outline_color = Color( 0.0196078, 0, 0.270588, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 50
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
@@ -49,14 +57,69 @@ position = Vector2( 1110, 278 )
 script = null
 
 [node name="LabelGameOver" type="Label" parent="."]
-margin_left = 158.0
-margin_top = 93.0
-margin_right = 1478.0
+margin_top = 69.0
+margin_right = 1598.0
 margin_bottom = 213.0
 rect_pivot_offset = Vector2( 663, 82 )
 custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
 custom_fonts/font = SubResource( 16 )
 text = "Fim de jogo"
+align = 1
+
+[node name="LabelScore" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 216.0
+margin_right = 1597.0
+margin_bottom = 378.0
+rect_pivot_offset = Vector2( 158, 60 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "
+Pontuação
+
+
+"
+align = 1
+
+[node name="LabelScoreNum" type="Label" parent="."]
+margin_top = 305.0
+margin_right = 1593.0
+margin_bottom = 514.0
+custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "0
+
+
+"
+align = 1
+
+[node name="LabelHighScore" type="Label" parent="."]
+margin_left = 1086.0
+margin_top = 451.0
+margin_right = 1599.0
+margin_bottom = 613.0
+rect_pivot_offset = Vector2( 158, 60 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Maior 
+Pontuação
+
+
+"
+align = 1
+
+[node name="LabelHighScoreNum" type="Label" parent="."]
+margin_left = 1090.0
+margin_top = 540.0
+margin_right = 1599.0
+margin_bottom = 749.0
+custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "0
+
+
+"
+align = 1
 
 [connection signal="pressed" from="ButtonRestart" to="." method="_on_ButtonRestart_pressed"]
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_ButtonMenu_pressed"]

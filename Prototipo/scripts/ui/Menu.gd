@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	pass
+	$LabelHighScoreNum.text = str(AutoLoad._get_Highscore())
 
 func _on_ButtonStart_pressed():
 	get_tree().change_scene("res://scenes/game/Main.tscn")
