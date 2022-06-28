@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/game/Bird.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/fonts/PressStart2PRegular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/images/background/seabg1.png" type="Texture" id=3]
+[ext_resource path="res://resources/themes/MenuButtonTheme.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=15]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 120
+outline_color = Color( 0.0196078, 0, 0.270588, 1 )
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -792, 189 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 79.2, -18.9 )
+
+[node name="ButtonRestart" type="Button" parent="."]
+margin_left = 464.0
+margin_top = 511.0
+margin_right = 1090.0
+margin_bottom = 615.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 15 )
+text = "Menu principal"
+
+[node name="ButtonMenu" type="Button" parent="."]
+margin_left = 467.0
+margin_top = 394.0
+margin_right = 1090.0
+margin_bottom = 498.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 15 )
+text = "Tentar novamente"
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1110, 278 )
+
+[node name="LabelTitleGame" type="Label" parent="."]
+margin_left = 158.0
+margin_top = 93.0
+margin_right = 1478.0
+margin_bottom = 213.0
+rect_pivot_offset = Vector2( 663, 82 )
+custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Fim de jogo"
