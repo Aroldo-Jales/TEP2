@@ -10,7 +10,7 @@ signal game_over
 
 func _init():
 	velocity = Vector2.ZERO
-	velocity.x = -500		
+	velocity.x = -900		
 					
 func _physics_process(delta):	
 	velocity.y += gravity * delta

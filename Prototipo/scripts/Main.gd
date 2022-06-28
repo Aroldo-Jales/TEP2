@@ -2,6 +2,7 @@ extends Node2D
 
 var enemy_time = 5
 var enemy_velocity = Vector2(-900, 0)
+var impulse = -300
 
 var water_active: bool = false
 
@@ -57,10 +58,16 @@ func _on_TimerScore_timeout():
 func _on_Bird_fall():
 	$LabelScore.text = str(AutoLoad.score)
 	AutoLoad.score += int(5)
-	
-
+		
 func _on_Game_over():
 	if(AutoLoad._get_Highscore() < AutoLoad.score):
 		AutoLoad._set_Highscore(AutoLoad.score)
 	
 	get_tree().change_scene("res://scenes/ui/GameOver.tscn")	
+
+
+func _on_TouchScreenButton_pressed():
+	$Player.velocity.y = impulse		
+	
+func _on_TimerGame_timeout():		
+	impulse -= 30

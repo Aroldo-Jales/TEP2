@@ -21,9 +21,13 @@ func _ready():
 	set_collision_mask_bit(CollisionLayers.Layers.WALL, true)
 	
 func get_input():	
+	var touch_up = 0
+	if(get_tree().get_root().get_node("Main") != null):
+		touch_up = Input.get_action_strength("ui_right")	
+		 
 	var up = Input.get_action_strength("ui_select")	
 							
-	if(up != 0):
+	if(up != 0 || touch_up != 0):
 		velocity.y = impulse
 		player_state = state.IMPULSE				
 	else:		
@@ -97,5 +101,4 @@ func _physics_process(delta):
 	_proportion_water_gravity()
 		
 func _on_TimerGame_timeout():	
-	gravity += 60
-	impulse -= 30
+	gravity += 60	

@@ -10,13 +10,13 @@
 size = 30
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=17]
+size = 30
+font_data = ExtResource( 2 )
+
 [sub_resource type="DynamicFont" id=16]
 size = 120
 outline_color = Color( 0.0196078, 0, 0.270588, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=17]
-size = 30
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=18]
@@ -28,7 +28,7 @@ pause_mode = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -792, 189 )
+position = Vector2( -793, 189 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 3 )
 centered = false
@@ -56,21 +56,27 @@ text = "Menu principal"
 position = Vector2( 1110, 278 )
 script = null
 
-[node name="LabelGameOver" type="Label" parent="."]
-margin_top = 69.0
-margin_right = 1598.0
-margin_bottom = 213.0
-rect_pivot_offset = Vector2( 663, 82 )
-custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
-custom_fonts/font = SubResource( 16 )
-text = "Fim de jogo"
-align = 1
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1429, 298 )
+script = null
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1372, 206 )
+script = null
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1210, 240 )
+script = null
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1306, 287 )
+script = null
 
 [node name="LabelScore" type="Label" parent="."]
 margin_left = 1.0
-margin_top = 216.0
-margin_right = 1597.0
-margin_bottom = 378.0
+margin_top = 214.0
+margin_right = 1600.0
+margin_bottom = 376.0
 rect_pivot_offset = Vector2( 158, 60 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 17 )
@@ -81,9 +87,19 @@ Pontuação
 "
 align = 1
 
+[node name="LabelGameOver" type="Label" parent="."]
+margin_top = 69.0
+margin_right = 1598.0
+margin_bottom = 213.0
+rect_pivot_offset = Vector2( 663, 82 )
+custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Fim de jogo"
+align = 1
+
 [node name="LabelScoreNum" type="Label" parent="."]
 margin_top = 305.0
-margin_right = 1593.0
+margin_right = 1600.0
 margin_bottom = 514.0
 custom_colors/font_color = Color( 0.207843, 0.235294, 0.658824, 1 )
 custom_fonts/font = SubResource( 18 )
