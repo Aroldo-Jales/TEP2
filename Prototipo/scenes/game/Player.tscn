@@ -53,6 +53,7 @@ scale = Vector2( 1.5195, 1.44444 )
 texture = ExtResource( 1 )
 
 [node name="Water" type="Particles2D" parent="."]
+pause_mode = 2
 position = Vector2( 21, 103 )
 rotation = 0.0523599
 scale = Vector2( 1, 1.5 )

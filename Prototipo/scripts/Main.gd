@@ -1,7 +1,7 @@
 extends Node2D
 
 var score: int = 0
-var enemy_time = 0.5
+var enemy_time = 5
 var enemy_velocity = Vector2(-900, 0)
 
 var water_active: bool = false
@@ -11,9 +11,7 @@ func _ready():
 	_add_wall(Vector2(0, -10), Vector2(1600, 10)) # TOP
 	_add_wall(Vector2(0, 750), Vector2(1600, 50)) # BOTTOM	
 	_add_wall(Vector2(-10, -10), Vector2(10, 1600)) # LEFT
-	_add_wall(Vector2(1610, -10), Vector2(10, 1600)) # RIGHT	
-		
-	#$ButtonPause.connect('pause_game', self, '_on_Pause_game')
+	_add_wall(Vector2(1610, -10), Vector2(10, 1600)) # RIGHT				
 	
 func _on_Timer_timeout():
 	#TIMER ENEMIES
@@ -24,7 +22,11 @@ func _on_Timer_timeout():
 	add_child(bird)			
 	bird.connect('bird_fall', self, '_on_Bird_fall')
 	
+	if(enemy_time < 1):
+		$TimerEnemies.wait_time = 0.5
+		
 	$TimerEnemies.wait_time = enemy_time
+	enemy_time -= 0.4
 	
 func _add_wall(position: Vector2, size: Vector2):
 	var rect := RectangleShape2D.new()

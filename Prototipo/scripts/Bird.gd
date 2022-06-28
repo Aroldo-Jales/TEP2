@@ -36,4 +36,4 @@ func _physics_process(delta):
 		queue_free()	
 
 func _on_BirdArea_area_entered(area):
-	get_tree().change_scene("res://scenes/ui/Menu.tscn")
+	get_tree().change_scene("res://scenes/ui/GameOver.tscn")

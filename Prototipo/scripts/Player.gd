@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 700
 export (int) var gravity = 700
-var impulse: int = -300
+export (int) var impulse = -300
 
 enum state { IMPULSE, FALL}
 
@@ -27,7 +27,7 @@ func get_input():
 		velocity.y = impulse
 		player_state = state.IMPULSE				
 	else:		
-		velocity.x = 0			
+		player_state = state.FALL			
 
 func _proportion_water_gravity():
 	if(get_tree().get_root().get_node("Main") != null):
@@ -89,16 +89,13 @@ func _proportion_water_gravity():
 func _physics_process(delta):
 	if(get_tree().get_root().get_node("Main") != null):
 		jetpack_water = get_tree().get_root().get_node("Main").get_node("Player").get_node("Water")			
-		jetpack_water.scale.y = 1.5
+		jetpack_water.scale.y = 1.5	
 	
-	get_input()	
-				
+	get_input()				
 	velocity.y += gravity * delta	
-	velocity = move_and_slide(velocity, Vector2.UP)		
-		
+	velocity = move_and_slide(velocity, Vector2.UP)				
 	_proportion_water_gravity()
-	
-	
+		
 func _on_TimerGame_timeout():	
 	gravity += 60
 	impulse -= 30
