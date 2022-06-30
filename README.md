@@ -3,6 +3,6 @@
 Projeto para Game Jam ADS 2022.1 FINAL
 
 Participantes:
-Aroldo Lenon
-José Hilton
-Mateus Alves
+Aroldo Lenon 
+José Hilton 
+Mateus Alves 
